@@ -32,7 +32,8 @@ namespace MVCCrud.Controllers
             {
                 AdminSession.UserID = authenticAdmin.adminID;
                 AdminSession.UserName = authenticAdmin.firstname + authenticAdmin.lastname;
-                return RedirectToAction("EmployeeList", "Home");
+                TempData["smessage"] = "Log In Successfull";
+                return RedirectToAction("ListOfEmployee", "Home", new { name = $"{authenticAdmin.firstname} {authenticAdmin.lastname}" });
             }
             else
             {
@@ -44,6 +45,7 @@ namespace MVCCrud.Controllers
         public ActionResult SignOut()
         {
             HttpContext.Session.Clear();
+            TempData.Clear();
             return Redirect("SignIn");
         }
 

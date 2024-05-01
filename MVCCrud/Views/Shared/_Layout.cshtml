@@ -18,10 +18,19 @@
     <link href="~/Content/Theme/bs_theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/Content/Theme/bs_theme/css/sb-admin-2.css" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/toastr.js"></script>
 
 </head>
 
 <body id="page-top">
+    @if (@TempData["smessage"] != null)
+    {
+        <script>
+            toastr.success('@TempData["smessage"]');
+        </script>
+    }
 
     <!-- Page Wrapper -->
     <div id="wrapper">

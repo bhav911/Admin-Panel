@@ -2222,7 +2222,8 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Sidebar.cshtml" />
     <Content Include="Views\Shared\Topbar.cshtml" />
-    <Content Include="Views\Home\EmployeeList.cshtml" />
+    <Content Include="Views\Home\ListOfEmployee.cshtml" />
+    <Content Include="Views\Home\AddEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

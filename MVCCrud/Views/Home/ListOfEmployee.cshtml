@@ -1,0 +1,33 @@
+﻿@model List<MVCCrud.Models.CustomModel.EmployeesModel>
+
+    <div class="p-5">
+        <table class="table w-100 table-bordered text-nowrap">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Role</td>
+                    <td>Phone</td>
+                    <td>Email</td>
+                    <td>Address</td>
+                    <td>Gender</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var emp in Model)
+                    {
+                        <tr>
+                            <td>@emp.employeeID</td>
+                            <td>@emp.firstname @emp.lastname</td>
+                            <td>@emp.emp_role</td>
+                            <td>@emp.phoneNumber</td>
+                            <td>@emp.email</td>
+                            <td>@emp.emp_address</td>
+                            <td>@emp.gender</td>
+                            <td>@Html.ActionLink("Edit", "EditEmployee", "Home", new { @emp.employeeID }, new { @class="btn btn-primary" }) @Html.ActionLink("Delete", "DeleteEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-danger" })</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    </div>

@@ -15,22 +15,28 @@ namespace MVCCrud.Models.Context
 
     public partial class AdminsModel
     {
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage ="Invalid Firstname")][Required(ErrorMessage ="Can't Leave field Empty")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage ="Invalid Firstname")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
         public string firstname { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Invalid Lastname")][Required(ErrorMessage ="Can't Leave field Empty")]
+        [RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Invalid Lastname")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
         public string lastname { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email Address")][Required(ErrorMessage ="Can't Leave field Empty")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
         public string email { get; set; }
 
-        [Phone(ErrorMessage = "Invalid Phone Number")][Required(ErrorMessage ="Can't Leave field Empty")]
+        [Phone(ErrorMessage = "Invalid Phone Number")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
         public string phoneNumber { get; set; }
 
-        [Required(ErrorMessage ="Can't Leave field Empty")][RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$", ErrorMessage = "must contain at least one special character, uppercase letter, lowercase letter, one digit")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$", ErrorMessage = "must contain at least one special character, uppercase letter, lowercase letter, one digit")]
         public string og_pass { get; set; }
 
-        [Compare("og_pass", ErrorMessage = "Password Does Not Match")][Required(ErrorMessage ="Can't Leave field Empty")]
+        [Compare("og_pass", ErrorMessage = "Password Does Not Match")]
+        [Required(ErrorMessage ="Can't Leave field Empty")]
         public string cnf_pass { get; set; }
     }
 }

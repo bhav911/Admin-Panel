@@ -26,5 +26,6 @@ namespace MVCCrud.Models.Context
         }
     
         public virtual DbSet<Admins> Admins { get; set; }
+        public virtual DbSet<Employees> Employees { get; set; }
     }
 }

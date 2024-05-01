@@ -1,4 +1,7 @@
 ﻿using MVCCrud.Helpers.Helper;
+using MVCCrud.Models.Context;
+using MVCCrud.Models.CustomModel;
+using MVCCrud.Repository.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +13,16 @@ namespace MVCCrud.Controllers
     [CustomAuthorizeAttribute]
     public class HomeController : Controller
     {
-        public ActionResult EmployeeList()
+        private readonly EmployeesServices _service = new EmployeesServices();
+        public ActionResult ListOfEmployee(string name)
         {
-            return View();
+            if (!TempData.ContainsKey("Name"))
+            {
+                TempData["Name"] = name;
+            }
+            List<Employees> EmployeeList = _service.GetAllEmployee();
+            List<EmployeesModel> EmployeeModelList = ModelConverter.convertEmployeeListToEmployeeModelList(EmployeeList);
+            return View(EmployeeModelList);
         }
 
         [HttpGet]
@@ -27,10 +37,10 @@ namespace MVCCrud.Controllers
         //    return View();
         //}
 
-        [HttpPost]
-        public ActionResult DeleteEmployee()
+        public ActionResult DeleteEmployee(int employeeID)
         {
-            return View();
+            _service.DeleteEmployee(employeeID);
+            return RedirectToAction("ListOfEmployee");
         }
 
         public ActionResult AddEmployee()
@@ -39,9 +49,12 @@ namespace MVCCrud.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddEmplyee()
+        public ActionResult AddEmployee(EmployeesModel newEmployeeDate)
         {
-            return View();
+            Employees convertedEmployee = ModelConverter.convertEmployeeToEmployeeModel(newEmployeeDate);
+            _service.AddEmployee(convertedEmployee);
+            TempData["smessage"] = "Successfully Added New Employee";
+            return RedirectToAction("AddEmployee");
         }
     }
 }

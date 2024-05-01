@@ -13,5 +13,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="CRUDdbModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="emp_address" ColumnName="emp_address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="emp_role" ColumnName="emp_role" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

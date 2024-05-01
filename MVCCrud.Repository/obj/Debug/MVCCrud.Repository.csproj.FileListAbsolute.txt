@@ -1,10 +1,6 @@
+C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Repository.dll.config
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Repository.dll
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Repository.pdb
-C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.csproj.AssemblyReference.cache
-C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.csproj.CoreCompileInputs.cache
-C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.dll
-C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.pdb
-C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Repository.dll.config
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\EntityFramework.dll
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\EntityFramework.SqlServer.dll
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Models.dll
@@ -12,4 +8,8 @@ C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repositor
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\MVCCrud.Models.dll.config
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\EntityFramework.xml
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.csproj.AssemblyReference.cache
+C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.csproj.CoreCompileInputs.cache
 C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.csproj.CopyComplete
+C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.dll
+C:\Bhavya_Modhiya\Training_tasks\dotnet training codes\MVCCrud\MVCCrud.Repository\obj\Debug\MVCCrud.Repository.pdb

@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IAdminsInterface.cs" />
+    <Compile Include="Interface\IEmployeesInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminsServices.cs" />
+    <Compile Include="Services\EmployeesServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVCCrud.Models\MVCCrud.Models.csproj">

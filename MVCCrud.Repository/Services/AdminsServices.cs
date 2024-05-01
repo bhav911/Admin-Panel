@@ -31,7 +31,7 @@ namespace MVCCrud.Repository.Services
         public Admins AuthenticUser(string login_email, string login_password)
         {
             Admins requestingUser = _context.Admins.FirstOrDefault(n => n.email == login_email);
-            return requestingUser.adminPassword == login_password ? requestingUser : null;
+            return (requestingUser != null && requestingUser.adminPassword == login_password) ? requestingUser : null;
         }
     }
 }
