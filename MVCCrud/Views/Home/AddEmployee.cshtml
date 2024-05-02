@@ -1,54 +1,58 @@
-﻿<div>
+﻿@model  MVCCrud.Models.CustomModel.EmployeesModel
+<div>
     <h2 class="text-center my-5">Add Employee</h2>
     @using (Html.BeginForm())
     {
         <div class="w-50 mx-auto p-5 border">
             <div class="form-floating">
-                @Html.TextBox("firstname", null, new { @class = "form-control mb-3", @placeholder = "" })
-                @Html.Label("firstname", "Firstname")
-                @Html.ValidationMessage("firstname")
+                @Html.TextBoxFor(m => m.firstname, new { @class = "form-control mb-3", @placeholder = "" })
+                @Html.LabelFor(m => m.firstname, "Firstname")
+                @Html.ValidationMessageFor(m => m.firstname)
             </div>
             <div class="form-floating">
-                @Html.TextBox("lastname", null, new { @class = "form-control mb-3", @placeholder = "" })
-                @Html.Label("lastname", "Lastname")
-                @Html.ValidationMessage("lastname")
+                @Html.TextBoxFor(m => m.lastname, new { @class = "form-control mb-3", @placeholder = "" })
+                @Html.LabelFor(m => m.lastname, "Lastname")
+                @Html.ValidationMessageFor(m => m.lastname)
             </div>
             <div class="form-floating">
-                @Html.TextBox("emp_role", null, new { @class = "form-control mb-3", @placeholder = "" })
-                @Html.Label("emp_role", "Role")
-                @Html.ValidationMessage("emp_role")
+                @Html.TextBoxFor(m => m.emp_role, new { @class = "form-control mb-3", @placeholder = "" })
+                @Html.LabelFor(m => m.emp_role, "Role")
+                @Html.ValidationMessageFor(m => m.emp_role)
             </div>
             <div class="form-floating">
-                @Html.TextBox("phoneNumber", null, new { @class = "form-control mb-3", @placeholder = "" })
-                @Html.Label("phoneNumber", "Contact Number")
-                @Html.ValidationMessage("phoneNumber")
+                @Html.TextBoxFor(m => m.phoneNumber, new { @class = "form-control mb-3", @placeholder = "" })
+                @Html.LabelFor(m => m.phoneNumber, "Contact Number")
+                @Html.ValidationMessageFor(m => m.phoneNumber)
             </div>
             <div class="form-floating">
-                @Html.TextBox("email", null, new { @class = "form-control mb-3", @placeholder = "", @type = "email" })
-                @Html.Label("email", "Email Address")
-                @Html.ValidationMessage("email")
+                @Html.TextBoxFor(m => m.email, new { @class = "form-control mb-3", @placeholder = "", @type = "email" })
+                @Html.LabelFor(m => m.email, "Email Address")
+                @Html.ValidationMessageFor(m => m.email)
             </div>
             <div class="form-floating">
-                @Html.TextArea("emp_address", null, new { @class = "form-control mb-3", @placeholder = ""})
-                @Html.Label("emp_address", "Address")
-                @Html.ValidationMessage("emp_address")
+                @Html.TextAreaFor(m => m.emp_address, new { @class = "form-control mb-3", @placeholder = ""})
+                @Html.LabelFor(m => m.emp_address, "Address")
+                @Html.ValidationMessageFor(m => m.emp_address)
             </div>
             <div class="ps-4 bg-white border rounded-3 mb-3 ">
                 <p class="ps-0 mb-1">Gender</p>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="Male" checked value="Male">
+                    @Html.RadioButtonFor(m => m.gender, "Male", new { @class= "form-check-input", @id = "Male", @checked=true})
+                    @*<input class="form-check-input" type="radio" name="gender" id="Male" checked cvalue="Male">*@
                     <label class="form-check-label" for="Male">
                         Male
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="Female" value="Female">
+                    @Html.RadioButtonFor(m => m.gender, "Female", new { @class = "form-check-input", @id = "Female" })
+                    @*<input class="form-check-input" type="radio" name="gender" id="Female" value="Female">*@
                     <label class="form-check-label" for="Female">
                         Female
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="Other" value="Other">
+                    @Html.RadioButtonFor(m => m.gender, "Other", new { @class = "form-check-input", @id = "Other" })
+                    @*<input class="form-check-input" type="radio" name="gender" id="Other" value="Other">*@
                     <label class="form-check-label" for="Other">
                         Other
                     </label>

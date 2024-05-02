@@ -25,12 +25,26 @@
 </head>
 
 <body id="page-top">
+    @if (@TempData["emessage"] != null)
+     {
+        <script>
+            toastr.error('@TempData["emessage"]');
+        </script>
+     }
+
     @if (@TempData["smessage"] != null)
     {
         <script>
             toastr.success('@TempData["smessage"]');
         </script>
-    }
+     }
+
+    @if (@TempData["wmessage"] != null)
+    {
+        <script>
+            toastr.warning('@TempData["wmessage"]');
+        </script>
+     }
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -75,7 +89,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/Login/SignOut">Logout</a>
+                    <a class="btn btn-primary" href="/Login/SignOut">Logout</a> 
                 </div>
             </div>
         </div>

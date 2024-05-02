@@ -47,16 +47,33 @@ namespace MVCCrud.Helpers.Helper
             return result;
         }
 
-        public static Employees convertEmployeeToEmployeeModel(EmployeesModel oldEmployee)
+        public static Employees convertEmployeeModelToEmployee(EmployeesModel oldEmployee)
         {
             Employees newEmployee = new Employees()
             {
+                employeeID = oldEmployee.employeeID,
                 firstname = oldEmployee.firstname,
                 lastname = oldEmployee.lastname,
                 emp_address = oldEmployee.emp_address,
                 email = oldEmployee.email,
                 emp_role = oldEmployee.emp_role,
                 gender = oldEmployee.gender == "Male" ? "M" : oldEmployee.gender == "Female" ? "F" : "O",
+                phoneNumber = oldEmployee.phoneNumber,
+            };
+            return newEmployee;
+        }
+
+        public static EmployeesModel convertEmployeeToEmployeeModel(Employees oldEmployee)
+        {
+            EmployeesModel newEmployee = new EmployeesModel()
+            {
+                employeeID = oldEmployee.employeeID,
+                firstname = oldEmployee.firstname,
+                lastname = oldEmployee.lastname,
+                emp_address = oldEmployee.emp_address,
+                email = oldEmployee.email,
+                emp_role = oldEmployee.emp_role,
+                gender = oldEmployee.gender == "M" ? "Male" : oldEmployee.gender == "F" ? "Female" : "Other",
                 phoneNumber = oldEmployee.phoneNumber,
             };
             return newEmployee;

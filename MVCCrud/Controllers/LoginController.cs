@@ -21,6 +21,7 @@ namespace MVCCrud.Controllers
 
         public ActionResult SignIn()
         {
+            HttpContext.Session.Clear();
             return View();
         }
 

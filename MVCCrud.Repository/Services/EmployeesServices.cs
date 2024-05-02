@@ -26,7 +26,7 @@ namespace MVCCrud.Repository.Services
 
         public void UpdateEmployee(Employees updatedEmpData)
         {
-            int employeeID = (int)updatedEmpData.employeeID;
+            int employeeID = updatedEmpData.employeeID;
             Employees empToUpd = GetEmployee(employeeID);
             empToUpd.firstname = updatedEmpData.firstname;
             empToUpd.lastname = updatedEmpData.lastname;
@@ -46,25 +46,8 @@ namespace MVCCrud.Repository.Services
 
         public void AddEmployee(Employees newEmpData)
         {
-            try
-            {
                 _context.Employees.Add(newEmpData);
-                _context.SaveChanges();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Iterate over each entity validation error
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    // Iterate over each validation error for the entity
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        // Log or handle the validation error
-                        Console.WriteLine($"Property: {validationError.PropertyName}, Error: {validationError.ErrorMessage}");
-                    }
-                }
-            }
-            
+                _context.SaveChanges();            
         }
     }
 }

@@ -1,21 +1,24 @@
 ﻿@model List<MVCCrud.Models.CustomModel.EmployeesModel>
 
     <div class="p-5">
-        <table class="table w-100 table-bordered text-nowrap">
+        <h3 class="text-center mb-5">List Of Employees</h3>
+        <table class="table w-100 table-bordered table-hover text-nowrap">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>Name</td>
-                    <td>Role</td>
-                    <td>Phone</td>
-                    <td>Email</td>
-                    <td>Address</td>
-                    <td>Gender</td>
-                    <td>Action</td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                    @foreach (var emp in Model)
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var emp in Model)
                     {
                         <tr>
                             <td>@emp.employeeID</td>
@@ -25,9 +28,19 @@
                             <td>@emp.email</td>
                             <td>@emp.emp_address</td>
                             <td>@emp.gender</td>
-                            <td>@Html.ActionLink("Edit", "EditEmployee", "Home", new { @emp.employeeID }, new { @class="btn btn-primary" }) @Html.ActionLink("Delete", "DeleteEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-danger" })</td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Delete", "DeleteEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-danger" })
+                            </td>
                         </tr>
                     }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center fw-bold">No Data Found!</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
