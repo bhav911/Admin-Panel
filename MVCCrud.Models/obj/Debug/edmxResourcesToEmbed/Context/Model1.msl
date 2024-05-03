@@ -27,5 +27,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Employees_Profile">
+      <EntityTypeMapping TypeName="CRUDdbModel.Employees_Profile">
+        <MappingFragment StoreEntitySet="Employees_Profile">
+          <ScalarProperty Name="imageData" ColumnName="imageData" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="imageID" ColumnName="imageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

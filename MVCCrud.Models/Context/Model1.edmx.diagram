@@ -5,8 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4abdceb4d83e497c857d478edc6aa0ab" Name="Diagram1">
-        <EntityTypeShape EntityType="CRUDdbModel.Admins" Width="1.5" PointX="9.125" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRUDdbModel.Admins" Width="1.5" PointX="12" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CRUDdbModel.Employees" Width="1.5" PointX="4.375" PointY="2.875" />
+        <EntityTypeShape EntityType="CRUDdbModel.Employees_Profile" Width="1.5" PointX="6.625" PointY="3.375" />
+        <AssociationConnector Association="CRUDdbModel.fk_employeeID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

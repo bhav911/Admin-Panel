@@ -34,7 +34,7 @@ namespace MVCCrud.Controllers
                 AdminSession.UserID = authenticAdmin.adminID;
                 AdminSession.UserName = authenticAdmin.firstname + authenticAdmin.lastname;
                 TempData["smessage"] = "Log In Successfull";
-                return RedirectToAction("ListOfEmployee", "Home", new { name = $"{authenticAdmin.firstname} {authenticAdmin.lastname}" });
+                return RedirectToAction("EntryAction", "Home", new { name = $"{authenticAdmin.firstname} {authenticAdmin.lastname}" });
             }
             else
             {

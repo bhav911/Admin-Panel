@@ -24,8 +24,33 @@
     <Property Name="emp_address" Type="varchar" MaxLength="200" />
     <Property Name="gender" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
+  <EntityType Name="Employees_Profile">
+    <Key>
+      <PropertyRef Name="imageID" />
+    </Key>
+    <Property Name="imageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employeeID" Type="int" />
+    <Property Name="imageData" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="fk_employeeID">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Employees_Profile" Type="Self.Employees_Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="employeeID" />
+      </Principal>
+      <Dependent Role="Employees_Profile">
+        <PropertyRef Name="employeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="CRUDdbModelStoreContainer">
     <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees_Profile" EntityType="Self.Employees_Profile" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_employeeID" Association="Self.fk_employeeID">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees_Profile" EntitySet="Employees_Profile" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

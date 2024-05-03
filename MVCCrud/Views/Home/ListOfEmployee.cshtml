@@ -1,46 +1,86 @@
-﻿@model List<MVCCrud.Models.CustomModel.EmployeesModel>
+﻿@model MVCCrud.Models.CustomModel.PaginationModel
 
     <div class="p-5">
         <h3 class="text-center mb-5">List Of Employees</h3>
-        <table class="table w-100 table-bordered table-hover text-nowrap">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null && Model.Count > 0)
-                {
-                    foreach (var emp in Model)
+
+        @using (Html.BeginForm("ListOfEmployee", "Home", FormMethod.Post))
+        {
+            <input name="pageNumber" id="pageBinder" hidden="hidden"/>
+        }
+
+        <div class="d-flex justify-content-end">
+            <ul class="pageNumberAdjuster">
+                @{
+                    for (int i = 1; i <= Model.TotalPage; i++)
                     {
-                        <tr>
-                            <td>@emp.employeeID</td>
-                            <td>@emp.firstname @emp.lastname</td>
-                            <td>@emp.emp_role</td>
-                            <td>@emp.phoneNumber</td>
-                            <td>@emp.email</td>
-                            <td>@emp.emp_address</td>
-                            <td>@emp.gender</td>
-                            <td>
-                                @Html.ActionLink("Edit", "EditEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-primary" })
-                                @Html.ActionLink("Delete", "DeleteEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-danger" })
-                            </td>
-                        </tr>
+                        if (i != Model.CurrentPage)
+                        {
+                            <li class="page-box">
+                                <a onclick="JavaScript:BindPageNumber(@i)">@i</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-box active">
+                                <a href="#">@i</a>
+                            </li>
+                        }
                     }
                 }
-                else
+            </ul>
+        </div>
+
+
+
+    <table class="table w-100 table-bordered table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Profile</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.ListOfEmployee.Count() > 0)
+            {
+                foreach (var emp in Model.ListOfEmployee)
                 {
                     <tr>
-                        <td colspan="8" class="text-center fw-bold">No Data Found!</td>
+                        <td>@emp.employeeID</td>
+                        <td class="text-center"><img class="rounded-circle" src="data:image;base64,@emp.emp_profile" width="40px" height="40px" /></td>
+                        <td>@emp.firstname @emp.lastname</td>
+                        <td>@emp.emp_role</td>
+                        <td>@emp.phoneNumber</td>
+                        <td>@emp.email</td>
+                        <td>@emp.emp_address</td>
+                        <td>@emp.gender</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Delete", "DeleteEmployee", "Home", new { @emp.employeeID }, new { @class = "btn btn-danger" })
+                        </td>
                     </tr>
                 }
-            </tbody>
-        </table>
-    </div>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center fw-bold">No Data Found!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function BindPageNumber(pageNumber) {
+        debugger
+        document.getElementById("pageBinder").setAttribute('value', pageNumber);
+        document.forms[2].submit();
+    }
+</script>

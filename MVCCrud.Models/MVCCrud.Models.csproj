@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,10 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\Admins.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MVCCrud.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Employees.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MVCCrud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Employees_Profile.cs">
+      <DependentUpon>MVCCrud.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -71,8 +75,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Context\MVCCrud.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCCrud.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\MVCCrud.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCCrud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\MVCCrud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCCrud.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CustomModel\AdminsModel.cs" />
     <Compile Include="CustomModel\EmployeesModel.cs" />
+    <Compile Include="CustomModel\PaginationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +103,13 @@
     </EntityDeploy>
     <None Include="Context\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Context\MVCCrud.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MVCCrud.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Context\MVCCrud.edmx.diagram">
+      <DependentUpon>MVCCrud.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -100,6 +127,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\MVCCrud.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MVCCrud.edmx</DependentUpon>
+      <LastGenOutput>MVCCrud.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\MVCCrud.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MVCCrud.edmx</DependentUpon>
+      <LastGenOutput>MVCCrud.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

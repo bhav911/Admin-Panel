@@ -4,11 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MVCCrud.Models.CustomModel
 {
     public class EmployeesModel
     {
+        [Required(ErrorMessage = "Please upload an image")]
+        public string emp_profile { get; set; }
         public int employeeID { get; set; }
 
         [Display(Name = "First Name")]
@@ -22,7 +25,7 @@ namespace MVCCrud.Models.CustomModel
         public string lastname { get; set; }
 
         [Display(Name = "Role")]
-        [RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Invalid Role")]
+        [RegularExpression(@"^[a-zA-Z ]*$", ErrorMessage = "Invalid Role")]
         [Required(ErrorMessage = "Can't Leave field Empty")]
         public string emp_role { get; set; }
 

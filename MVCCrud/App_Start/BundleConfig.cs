@@ -26,8 +26,10 @@ namespace MVCCrud
                       "~/Scripts/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/toastr").Include(
                       "~/Content/toastr.css"));

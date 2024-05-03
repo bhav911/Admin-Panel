@@ -11,8 +11,12 @@ namespace MVCCrud.Repository.Services
 {
     public class EmployeesServices : IEmployeesInterface
     {
-        private readonly CRUDdbEntities _context = new CRUDdbEntities();
+        private readonly CRUDdbEntities2 _context = new CRUDdbEntities2();
 
+        public int getEmployeeCount()
+        {
+            return _context.Employees.Count();
+        }
         public List<Employees> GetAllEmployee()
         {
             return _context.Employees.ToList();
@@ -24,7 +28,7 @@ namespace MVCCrud.Repository.Services
             return result;
         }
 
-        public void UpdateEmployee(Employees updatedEmpData)
+        public void UpdateEmployee(Employees updatedEmpData, Employees_Profile emp_image)
         {
             int employeeID = updatedEmpData.employeeID;
             Employees empToUpd = GetEmployee(employeeID);
@@ -35,19 +39,23 @@ namespace MVCCrud.Repository.Services
             empToUpd.emp_role = updatedEmpData.emp_role;
             empToUpd.emp_address = updatedEmpData.emp_address;
             empToUpd.email = updatedEmpData.email;
+            empToUpd.Employees_Profile.First().imageData = emp_image.imageData;
             _context.SaveChanges();
         }
         public void DeleteEmployee(int employeeID)
         {
             Employees empToDel = GetEmployee(employeeID);
+            _context.Employees_Profile.Remove(_context.Employees_Profile.FirstOrDefault(m => m.employeeID == employeeID));
             _context.Employees.Remove(empToDel);
             _context.SaveChanges();
         }
 
-        public void AddEmployee(Employees newEmpData)
+        public void AddEmployee(Employees newEmpData, Employees_Profile emp_image)
         {
-                _context.Employees.Add(newEmpData);
-                _context.SaveChanges();            
+            Employees returnedEntity = _context.Employees.Add(newEmpData);
+            emp_image.employeeID = returnedEntity.employeeID;
+            _context.Employees_Profile.Add(emp_image);
+            _context.SaveChanges();            
         }
     }
 }

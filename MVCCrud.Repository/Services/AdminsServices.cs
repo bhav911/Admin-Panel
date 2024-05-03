@@ -10,9 +10,9 @@ namespace MVCCrud.Repository.Services
 {
     public class AdminsServices : IAdminsInterface
     {
-        private readonly CRUDdbEntities _context;
+        private readonly CRUDdbEntities2 _context;
 
-        public AdminsServices(CRUDdbEntities context)
+        public AdminsServices(CRUDdbEntities2 context)
         {
             _context = context;
         }

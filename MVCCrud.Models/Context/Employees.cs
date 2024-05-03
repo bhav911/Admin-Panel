@@ -14,6 +14,12 @@ namespace MVCCrud.Models.Context
     
     public partial class Employees
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employees()
+        {
+            this.Employees_Profile = new HashSet<Employees_Profile>();
+        }
+    
         public int employeeID { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
@@ -22,5 +28,8 @@ namespace MVCCrud.Models.Context
         public string email { get; set; }
         public string emp_address { get; set; }
         public string gender { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employees_Profile> Employees_Profile { get; set; }
     }
 }

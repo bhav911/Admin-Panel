@@ -2226,7 +2226,7 @@
     <Content Include="Views\Home\AddEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\uploads\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -32,6 +32,7 @@ namespace MVCCrud.Helpers.Helper
             {
                 EmployeesModel temp = new EmployeesModel()
                 {
+                    emp_profile = emp.Employees_Profile.First().imageData,
                     firstname = emp.firstname,
                     lastname = emp.lastname,
                     emp_address = emp.emp_address,
@@ -67,6 +68,7 @@ namespace MVCCrud.Helpers.Helper
         {
             EmployeesModel newEmployee = new EmployeesModel()
             {
+                emp_profile = oldEmployee.Employees_Profile.First().imageData,
                 employeeID = oldEmployee.employeeID,
                 firstname = oldEmployee.firstname,
                 lastname = oldEmployee.lastname,

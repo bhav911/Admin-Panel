@@ -29,9 +29,34 @@
           <Property Name="emp_address" Type="varchar" MaxLength="200" />
           <Property Name="gender" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
+        <EntityType Name="Employees_Profile">
+          <Key>
+            <PropertyRef Name="imageID" />
+          </Key>
+          <Property Name="imageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="int" />
+          <Property Name="imageData" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="fk_employeeID">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Employees_Profile" Type="Self.Employees_Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Employees_Profile">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CRUDdbModelStoreContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees_Profile" EntityType="Self.Employees_Profile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_employeeID" Association="Self.fk_employeeID">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees_Profile" EntitySet="Employees_Profile" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -51,6 +76,11 @@
         <EntityContainer Name="CRUDdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admins" />
           <EntitySet Name="Employees" EntityType="CRUDdbModel.Employees" />
+          <EntitySet Name="Employees_Profile" EntityType="CRUDdbModel.Employees_Profile" />
+          <AssociationSet Name="fk_employeeID" Association="CRUDdbModel.fk_employeeID">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees_Profile" EntitySet="Employees_Profile" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employees">
           <Key>
@@ -64,7 +94,29 @@
           <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="emp_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Employees_Profile" Relationship="CRUDdbModel.fk_employeeID" FromRole="Employees" ToRole="Employees_Profile" />
         </EntityType>
+        <EntityType Name="Employees_Profile">
+          <Key>
+            <PropertyRef Name="imageID" />
+          </Key>
+          <Property Name="imageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="Int32" />
+          <Property Name="imageData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="CRUDdbModel.fk_employeeID" FromRole="Employees_Profile" ToRole="Employees" />
+        </EntityType>
+        <Association Name="fk_employeeID">
+          <End Type="CRUDdbModel.Employees" Role="Employees" Multiplicity="0..1" />
+          <End Type="CRUDdbModel.Employees_Profile" Role="Employees_Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Employees_Profile">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -94,6 +146,15 @@
                 <ScalarProperty Name="lastname" ColumnName="lastname" />
                 <ScalarProperty Name="firstname" ColumnName="firstname" />
                 <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees_Profile">
+            <EntityTypeMapping TypeName="CRUDdbModel.Employees_Profile">
+              <MappingFragment StoreEntitySet="Employees_Profile">
+                <ScalarProperty Name="imageData" ColumnName="imageData" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="imageID" ColumnName="imageID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
